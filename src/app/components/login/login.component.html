@@ -1,0 +1,36 @@
+<p>login works!</p>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div>
+    <mat-form-field>
+      <mat-label>Votre username ou votre email</mat-label>
+      <input matInput type="text" formControlName="usernameOrEmail" autofocus />
+      @if(loginForm.controls['usernameOrEmail'].hasError('required')){
+      <mat-error>Entrez votre username ou votre email</mat-error>
+      }
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Enter votre mot de passe</mat-label>
+      <input
+        matInput
+        formControlName="password"
+        [type]="hide ? 'password' : 'text'"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+      @if(loginForm.controls['password'].hasError('required')){
+      <mat-error>Entrez votre mot de passe</mat-error>
+      }
+    </mat-form-field>
+  </div>
+  <!-- <button type="submit">Submit</button> -->
+  <button type="submit" [disabled]="!loginForm.valid">Submit</button>
+</form>

@@ -6,3 +6,8 @@ export interface UserRegister{
     password:string;
     phone:string;
 }
+export interface UserLogin{
+    username:string;
+    email:string;
+    password:string; 
+}
