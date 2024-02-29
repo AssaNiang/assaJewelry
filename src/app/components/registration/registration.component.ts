@@ -18,19 +18,21 @@ import { UserRegister } from '../../interfaces/user.interface';
 
 export class RegistrationComponent implements OnInit{
   registrationForm!:FormGroup;
+
   constructor(private fb:FormBuilder,private registerService: RegisterService){}
-  hide = true;
+  hide: boolean = true;
+ 
  
   ngOnInit(): void {
     this.registrationForm = this.fb.group({
       firstname: ['',[Validators.required,Validators.minLength(2)]],
-      username:['',[Validators.required,Validators.minLength(2)]],
+      lastname:['',[Validators.required,Validators.minLength(2)]],
       email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required,Validators.minLength(8)]],
-      phone:['',[Validators.required]]
+      phone:['',[Validators.required]],
     })
   }
- 
+
   onSubmit(){
     console.log("hello",this.registrationForm.value);
     const userToRegister = this.registrationForm.value as UserRegister
