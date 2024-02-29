@@ -1,0 +1,22 @@
+.input-field mat-form-field {
+    width: 100%;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+.containerLogin{
+    width: 70%; /* Use a percentage for the width of the inscription container */
+    max-width: 400px; /* Add a maximum width to avoid excessive widening on large screens */
+}
+
+button{
+    padding:15px;
+}
+
+.button{
+    display:flex;
+    flex-direction: column;
+}
